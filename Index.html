@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <div id="main-container">
+        <header>
+            <h1>Welcome to ToDo WebApp</h1>
+            <div id="stats"></div>
+        </header>
+        <aside>
+            <div id="profile"></div>
+            <div id="note-form">
+                <h4>Note Form</h4>
+                <hr>
+                <div class="form" name="note-form" action="">
+                    <input type="text" class="form-control" name="title" id="title-control" placeholder="Title" required>
+                    <textarea class="form-control" name="body" id="body-control" cols="30" rows="10" required
+                        placeholder="Note..."></textarea>
+                        <input type="date" class="form-control" name="schedule" id="date-control" required>
+                        <input type="text" class="form-control" name="tag" id="tag-control" placeholder="Tag" required>
+                                        
+                    <input id="noteBtn" type="submit" class="btn" value="Save">
+                </div>
+            </div>
+        </aside>
+        <main>
+            <ul id="todo-list"></ul>
+        </main>
+    </div>
+
+    <script src="./Main.js"></script>
+
+</body>
+
+</html>

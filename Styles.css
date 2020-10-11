@@ -1,0 +1,177 @@
+:root {
+    --border-box-white: 1px solid white;
+    --border-box-black: 1px solid black;
+}
+
+#main-container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    /* grid */
+    display: grid;
+    grid-template-rows: 20vh 80vh;
+    grid-template-columns: 15vw 85vw;
+    row-gap: 1em;
+    column-gap: 0.5em;
+}
+
+/* -------- header section ----------------*/
+
+header {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    color: whitesmoke;
+    background-color: rgb(69, 69, 202);
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#stats {
+    width: 40%;
+    height: 25%;
+    border-radius: 0.5em;
+    border: var(--border-box-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#stats p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+aside {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background-color: gainsboro;
+    border-radius: 0.5em;
+}
+
+#profile {
+    width: 60%;
+    height: 20%;
+    border-radius: 50%;
+    /* border: var(--border-box-black); */
+    margin: 4em auto 0 auto;
+    background: url(./profile.jpg);
+    background-position: center center;
+    background-size: contain;
+}
+
+#note-form {
+    width: 90%;
+    height: 45%;
+    margin: 3em auto;
+    text-align: center;
+    color: rgb(77, 75, 75);
+}
+
+#note-form .form {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.form-control {
+    height: 1.5em;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    color: rgb(77, 75, 75);
+}
+
+.btn {
+    height: 2.5em;
+    background-color: rgb(100, 190, 85);
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5em;
+}
+
+main {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border: 1px solid gainsboro;
+    border-radius: 0.5em;
+}
+
+#todo-list {
+    width: 95%;
+    max-height: 75vh;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+#todo-list li {
+    list-style: none;
+}
+
+.listItem {
+    width: 15%;
+    min-height: 25vh;
+    height: auto;
+    padding: 1em;
+    margin: 1em 0.5em;
+    text-align: center;
+    border-radius: 0.5em;
+    background-color: rgb(255, 249, 166);
+}
+
+.card {
+    border: var(--border-box-black);
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    color: grey;
+}
+
+.card .title {
+    width: 100%;
+    height: 20%;
+    font-weight: bold;
+    text-align: start;
+    border: var(--border-box-black);
+}
+
+.card .body {
+    width: 100%;
+    height: 60%;
+    text-align: start;
+    background-color: rgb(255, 246, 119);
+    opacity: 0.6;
+    border: 1px solid gainsboro;
+}
+
+.card .row {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.row .date {
+    width: 50%;
+    text-align: start;
+}
+
+.row .tag {
+    width: 40%;
+    text-align: end;
+    font-weight: bold;
+}
+
