@@ -1,14 +1,34 @@
-// DOM variables 
+// ToDo list DOM variable
+const noteList = document.getElementById('todo-list')
+// Note form DOM variables 
 const noteTitle = document.getElementById('title-control')
 const noteBody = document.getElementById('body-control')
 const noteTag = document.getElementById('tag-control')
 const noteDate = document.getElementById('date-control')
-
 const noteSubmitBtn = document.getElementById('noteBtn')
-const noteEraseBtn = document.getElementById('eraseBtn')
 
-const listItems = document.getElementsByClassName('listItem')
+// Update To-Do list when one note is remove 
+function updateNoteList(notes){
+    noteList.innerHTML = ''
+    notes.forEach(element => {
+        console.log(element)
+        noteList.appendChild(element)
+    });
+}
 
+// Remove the click note form To-Do list
+function eraseBtn(event){
+    const listItems = Array.from(document.getElementById('todo-list').childNodes)
+    const item = event.target.parentNode.parentNode.parentNode
+    const noteIndex = listItems.indexOf(item)
+    listItems.splice(noteIndex,1)
+
+    updateNoteList(listItems)
+
+
+}
+
+// Submit note form data on click
 noteSubmitBtn.addEventListener('click', function () {
     const note = {
         title: noteTitle.value,
@@ -22,6 +42,7 @@ noteSubmitBtn.addEventListener('click', function () {
     clearForm()
 })
 
+// Reset the note form fields on click
 function clearForm() {
     noteTitle.value = ''
     noteBody.value = ''
@@ -29,6 +50,7 @@ function clearForm() {
     noteTag.value = ''
 }
 
+// Structure the note data to HTML tags 
 function to_html(note) {
     const card = `  
         <div class="card">
@@ -36,7 +58,7 @@ function to_html(note) {
                 <div class="title">
                     <p>${note.title}</p>
                 </div>
-                <input type="button" id="eraseBtn" value="x">
+                <input type="button" id="eraseBtn" value="x" onclick="eraseBtn(event)">
             </div>
             <div class="body">
                 <p>${note.body}</p>
@@ -54,6 +76,7 @@ function to_html(note) {
     render_html(card)
 }
 
+// Create List element and append to To-Do list 
 function render_html(card) {
     const item = document.createElement('LI')
     item.classList.add('listItem')
@@ -62,6 +85,7 @@ function render_html(card) {
     get_notes()
 }
 
+// Get the actual number of note on To-Do list 
 function get_notes() {
     const numOfNotes = document.getElementById('todo-list').childNodes.length
     document.getElementById('stats').innerHTML = ` <p><strong>Num. of notes: </strong>${numOfNotes}</p>`
